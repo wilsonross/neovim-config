@@ -29,4 +29,3 @@ set splitbelow
 set splitright
 set encoding=UTF-8
 set shm+=I
-set colorcolumn=80
