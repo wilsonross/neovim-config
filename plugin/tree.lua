@@ -18,6 +18,9 @@ require("nvim-tree").setup({
 			open = true,
 			close = true,
 		}
+	},
+	git = {
+		enable = false, -- causes editor to crash during substantial changes
 	}
 })
 
