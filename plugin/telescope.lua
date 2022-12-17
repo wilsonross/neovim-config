@@ -1,20 +1,27 @@
 local telescope = require("telescope")
 local builtin = require("telescope.builtin")
+local config = require("telescope.config")
+
+local vimgrep_arguments = { 
+	unpack(config.values.vimgrep_arguments) 
+}
+
+-- Hide hidden hidden and git directory but show ignored files
+table.insert(vimgrep_arguments, "-uuu")
+table.insert(vimgrep_arguments, "--glob")
+table.insert(vimgrep_arguments, "--hidden")
+table.insert(vimgrep_arguments, "!**/.git/*")
 
 telescope.setup {
     defaults = {
+        initial_mode = "normal",
+		vimgrep_arguments = vimgrep_arguments,
         preview = {
             msg_bg_fillchar = " ", -- Removes binary preview background
         },
-        initial_mode = "normal",
     },
 }
 
 -- Mappings
-vim.keymap.set("n", "<leader>ff", function() 
-	builtin.find_files({
-		no_ignore = true,
-	})
-end, {})
-
-vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
+vim.keymap.set("n", "<leader>ff", builtin.find_files, { noremap = true })
+vim.keymap.set("n", "<leader>fg", builtin.live_grep, { noremap = true })
