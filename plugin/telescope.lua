@@ -6,11 +6,8 @@ local vimgrep_arguments = {
 	unpack(config.values.vimgrep_arguments) 
 }
 
--- Hide hidden hidden and git directory but show ignored files
+-- Show ignored files
 table.insert(vimgrep_arguments, "-uuu")
-table.insert(vimgrep_arguments, "--glob")
-table.insert(vimgrep_arguments, "--hidden")
-table.insert(vimgrep_arguments, "!**/.git/*")
 
 telescope.setup {
     defaults = {
@@ -23,5 +20,5 @@ telescope.setup {
 }
 
 -- Mappings
-vim.keymap.set("n", "<leader>ff", builtin.find_files, { noremap = true })
-vim.keymap.set("n", "<leader>fg", builtin.live_grep, { noremap = true })
+vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
+vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
