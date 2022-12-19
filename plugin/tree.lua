@@ -29,3 +29,7 @@ local api = require("nvim-tree.api")
 -- Mappings
 vim.keymap.set("n", "<leader>tt", "<cmd>NvimTreeToggle<CR>", {noremap = true})
 vim.keymap.set("n", "<leader>tc", "<cmd>NvimTreeCollapse<CR>", {noremap = true})
+
+vim.keymap.set("n", "<leader>c", function ()
+	api.fs.clear_clipboard()
+end, {noremap = true})
