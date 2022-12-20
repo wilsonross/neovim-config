@@ -42,5 +42,6 @@
             "isStdout": false,
             "doesWriteToFile": true
         }
-    }
+    },
+	"coc.preferences.jumpCommand": "tab drop"
 }
