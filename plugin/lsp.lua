@@ -1,6 +1,7 @@
--- Setup language servers
+-- Import
 local lspconfig = require("lspconfig")
-lspconfig.kotlin_language_server.setup({})
+
+-- Setup
 lspconfig.lua_ls.setup({
 	settings = {
 		Lua = {
@@ -19,6 +20,8 @@ lspconfig.lua_ls.setup({
 		},
 	},
 })
+lspconfig.kotlin_language_server.setup({})
+lspconfig.gopls.setup({})
 
 -- Map
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)

@@ -4,6 +4,8 @@
 
 My custom [neovim](https://github.com/neovim/neovim) configuration.
 
+<br />
+
 ## Dependencies
 
 <br />

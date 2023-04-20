@@ -7,6 +7,9 @@ require("formatter").setup({
 		kotlin = {
 			require("formatter.filetypes.kotlin").ktlint,
 		},
+		go = {
+			require("formatter.filetypes.go").gofmt,
+		},
 	},
 })
 
