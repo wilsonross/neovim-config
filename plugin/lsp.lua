@@ -20,7 +20,17 @@ lspconfig.lua_ls.setup({
         },
     },
 })
-lspconfig.kotlin_language_server.setup({})
+lspconfig.kotlin_language_server.setup({
+    settings = {
+        kotlin = {
+            compiler = {
+                jvm = {
+                    target = "17"
+                }
+            }
+        }
+    }
+})
 lspconfig.gopls.setup({})
 lspconfig.hls.setup {}
 lspconfig.intelephense.setup {}
