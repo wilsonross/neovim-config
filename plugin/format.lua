@@ -10,6 +10,9 @@ require("formatter").setup({
 		go = {
 			require("formatter.filetypes.go").gofmt,
 		},
+		haskell = {
+			require("formatter.filetypes.haskell").stylish_haskell,
+		},
 	},
 })
 

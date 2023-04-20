@@ -22,6 +22,7 @@ lspconfig.lua_ls.setup({
 })
 lspconfig.kotlin_language_server.setup({})
 lspconfig.gopls.setup({})
+lspconfig.hls.setup{}
 
 -- Map
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
