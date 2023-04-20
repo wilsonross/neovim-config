@@ -1,11 +1,17 @@
-require("nvim-tree").setup({
-    git = {
-        ignore = false,
-    },
-	filters = { 
-		custom = { 
-			"^.git$" 
-		} 
+-- Import
+local api = require("nvim-tree.api")
+local tree = require("nvim-tree")
+
+-- Setup
+tree.setup({
+	git = {
+		ignore = false,
+		enable = false, -- Causes editor to crash during substantial changes
+	},
+	filters = {
+		custom = {
+			"^.git$",
+		},
 	},
 	view = {
 		adaptive_size = true,
@@ -17,19 +23,21 @@ require("nvim-tree").setup({
 		sync = {
 			open = true,
 			close = true,
-		}
+		},
 	},
-	git = {
-		enable = false, -- causes editor to crash during substantial changes
-	}
+	renderer = {
+		icons = {
+			show = {
+				file = false,
+				folder = false,
+				folder_arrow = false,
+				git = false,
+			},
+		},
+	},
 })
 
-local api = require("nvim-tree.api")
-
--- Mappings
-vim.keymap.set("n", "<leader>tt", "<cmd>NvimTreeToggle<CR>", {noremap = true})
-vim.keymap.set("n", "<leader>tc", "<cmd>NvimTreeCollapse<CR>", {noremap = true})
-
-vim.keymap.set("n", "<leader>c", function ()
-	api.fs.clear_clipboard()
-end, {noremap = true})
+-- Map
+vim.keymap.set("n", "<leader>tt", "<cmd>NvimTreeToggle<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>tc", "<cmd>NvimTreeCollapse<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>c", api.fs.clear_clipboard, { noremap = true })

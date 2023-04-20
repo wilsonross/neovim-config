@@ -1,6 +1,5 @@
 # MacOS
 .DS_Store
 
-# Coc extensions
-coc/*
-coc/!coc-settings.sample.json
+# Lua
+.luarc.json
