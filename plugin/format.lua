@@ -13,9 +13,12 @@ require("formatter").setup({
 		haskell = {
 			require("formatter.filetypes.haskell").stylish_haskell,
 		},
-        php = {
-            require("formatter.filetypes.php").php,
-        },
+		php = {
+			require("formatter.filetypes.php").php,
+		},
+		html = {
+			require("formatter.filetypes.html").prettier,
+		},
 	},
 })
 
