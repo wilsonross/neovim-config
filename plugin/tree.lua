@@ -4,37 +4,37 @@ local tree = require("nvim-tree")
 
 -- Setup
 tree.setup({
-	git = {
-		ignore = false,
-		enable = false, -- Causes editor to crash during substantial changes
-	},
-	filters = {
-		custom = {
-			"^.git$",
-		},
-	},
-	view = {
-		adaptive_size = true,
-		width = 40,
-		number = true,
-		relativenumber = true,
-	},
-	tab = {
-		sync = {
-			open = true,
-			close = true,
-		},
-	},
-	renderer = {
-		icons = {
-			show = {
-				file = false,
-				folder = false,
-				folder_arrow = false,
-				git = false,
-			},
-		},
-	},
+    git = {
+        ignore = false,
+        enable = false, -- Causes editor to crash during substantial changes
+    },
+    filters = {
+        custom = {
+            "^.git$",
+        },
+    },
+    view = {
+        adaptive_size = true,
+        width = 40,
+        number = true,
+        relativenumber = true,
+    },
+    tab = {
+        sync = {
+            open = true,
+            close = true,
+        },
+    },
+    renderer = {
+        icons = {
+            show = {
+                file = false,
+                folder = false,
+                folder_arrow = false,
+                git = false,
+            },
+        },
+    },
 })
 
 -- Map

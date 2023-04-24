@@ -17,15 +17,12 @@ Plug("neovim/nvim-lspconfig")
 -- Syntax highlighting
 Plug("nvim-treesitter/nvim-treesitter")
 
--- Formatting
-Plug('mhartington/formatter.nvim')
-
 -- File explorer
-Plug('nvim-tree/nvim-tree.lua')
+Plug("nvim-tree/nvim-tree.lua")
 
 vim.call("plug#end")
 
 -- Globals
-vim.g.mapleader = ' '
+vim.g.mapleader = " "
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1

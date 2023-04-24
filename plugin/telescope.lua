@@ -4,18 +4,18 @@ local builtin = require("telescope.builtin")
 local config = require("telescope.config")
 
 local vimgrep_arguments = {
-	unpack(config.values.vimgrep_arguments),
+    unpack(config.values.vimgrep_arguments),
 }
 
 -- Setup
 telescope.setup({
-	defaults = {
-		initial_mode = "normal",
-		vimgrep_arguments = vimgrep_arguments,
-		preview = {
-			msg_bg_fillchar = " ", -- Removes binary preview background
-		},
-	},
+    defaults = {
+        initial_mode = "normal",
+        vimgrep_arguments = vimgrep_arguments,
+        preview = {
+            msg_bg_fillchar = " ", -- Removes binary preview background
+        },
+    },
 })
 
 -- Mappings
