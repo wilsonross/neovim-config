@@ -53,10 +53,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
         vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
         local opts = { buffer = ev.buf }
-        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-        vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+
+        -- Open in a new tab
+        vim.api.nvim_buf_set_keymap(0, "n", "gD", "<cmd>tab split | lua vim.lsp.buf.declaration()<CR>", {})
+        vim.api.nvim_buf_set_keymap(0, "n", "gd", "<cmd>tab split | lua vim.lsp.buf.definition()<CR>", {})
+        vim.api.nvim_buf_set_keymap(0, "n", "gi", "<cmd>tab split | lua vim.lsp.buf.implementation()<CR>", {})
+
         vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-        vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
         vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
         vim.keymap.set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opts)
         vim.keymap.set("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, opts)
