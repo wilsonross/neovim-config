@@ -36,6 +36,7 @@ lspconfig.hls.setup({})
 lspconfig.intelephense.setup({})
 lspconfig.html.setup({})
 lspconfig.tsserver.setup({})
+lspconfig.jdtls.setup({})
 
 -- Map
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
