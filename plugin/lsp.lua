@@ -34,7 +34,11 @@ lspconfig.kotlin_language_server.setup({
 lspconfig.gopls.setup({})
 lspconfig.hls.setup({})
 lspconfig.intelephense.setup({})
-lspconfig.html.setup({})
+lspconfig.html.setup({
+    filetypes = {
+        "twig",
+    },
+})
 lspconfig.tsserver.setup({})
 lspconfig.jdtls.setup({})
 
