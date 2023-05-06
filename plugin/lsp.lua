@@ -2,24 +2,6 @@
 local lspconfig = require("lspconfig")
 
 -- Setup
-lspconfig.lua_ls.setup({
-    settings = {
-        Lua = {
-            runtime = {
-                version = "LuaJIT",
-            },
-            diagnostics = {
-                globals = { "vim" },
-            },
-            workspace = {
-                library = vim.api.nvim_get_runtime_file("", true),
-            },
-            telemetry = {
-                enable = false,
-            },
-        },
-    },
-})
 lspconfig.kotlin_language_server.setup({
     settings = {
         kotlin = {
@@ -32,7 +14,6 @@ lspconfig.kotlin_language_server.setup({
     },
 })
 lspconfig.gopls.setup({})
-lspconfig.hls.setup({})
 lspconfig.intelephense.setup({})
 lspconfig.html.setup({
     filetypes = {
