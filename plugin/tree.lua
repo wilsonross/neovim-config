@@ -16,23 +16,11 @@ tree.setup({
     view = {
         adaptive_size = true,
         width = 40,
-        number = true,
-        relativenumber = true,
     },
     tab = {
         sync = {
             open = true,
             close = true,
-        },
-    },
-    renderer = {
-        icons = {
-            show = {
-                file = false,
-                folder = false,
-                folder_arrow = false,
-                git = false,
-            },
         },
     },
 })

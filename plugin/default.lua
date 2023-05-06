@@ -37,6 +37,3 @@ vim.keymap.set("n", "<leader>j", "<c-w>j", { noremap = true })
 vim.keymap.set("n", "<leader>k", "<c-w>k", { noremap = true })
 vim.keymap.set("n", "<leader>l", "<c-w>l", { noremap = true })
 vim.keymap.set("n", "<leader>w", "<c-w>w", { noremap = true })
-
--- Theme
-vim.cmd("colorscheme dracula")

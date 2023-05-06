@@ -4,7 +4,7 @@ local Plug = vim.fn["plug#"]
 vim.call("plug#begin", "~/.config/nvim/vendor")
 
 -- Theme
-Plug("dracula/vim", { as = "dracula" })
+Plug("catppuccin/nvim", { as = "catppuccin" })
 
 -- Fuzzy finder
 Plug("nvim-lua/plenary.nvim")
@@ -19,6 +19,12 @@ Plug("nvim-treesitter/nvim-treesitter")
 
 -- File explorer
 Plug("nvim-tree/nvim-tree.lua")
+
+-- Status bar
+Plug("freddiehaddad/feline.nvim")
+
+-- Icons
+Plug("nvim-tree/nvim-web-devicons")
 
 vim.call("plug#end")
 
