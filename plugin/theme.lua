@@ -17,6 +17,10 @@ require("catppuccin").setup({
                 information = { "underline" },
             },
         },
+        dap = {
+            enabled = true,
+            enable_ui = true,
+        }
     },
 })
 

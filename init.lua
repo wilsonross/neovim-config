@@ -26,6 +26,11 @@ Plug("freddiehaddad/feline.nvim")
 -- Icons
 Plug("nvim-tree/nvim-web-devicons")
 
+-- Debugger
+Plug("mfussenegger/nvim-dap")
+Plug("rcarriga/nvim-dap-ui")
+Plug("mxsdev/nvim-dap-vscode-js")
+
 vim.call("plug#end")
 
 -- Globals
