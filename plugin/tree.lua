@@ -6,7 +6,6 @@ local tree = require("nvim-tree")
 tree.setup({
     git = {
         ignore = false,
-        enable = false, -- Causes editor to crash during substantial changes
     },
     filters = {
         custom = {

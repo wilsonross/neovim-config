@@ -1,5 +1,6 @@
 require("catppuccin").setup({
     integrations = {
+        gitsigns = true,
         nvimtree = true,
         telescope = true,
         native_lsp = {

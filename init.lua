@@ -31,6 +31,9 @@ Plug("mfussenegger/nvim-dap")
 Plug("rcarriga/nvim-dap-ui")
 Plug("mxsdev/nvim-dap-vscode-js")
 
+-- Git
+Plug("lewis6991/gitsigns.nvim")
+
 vim.call("plug#end")
 
 -- Globals
