@@ -2,6 +2,9 @@
 local lspconfig = require("lspconfig")
 
 -- Setup
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
 lspconfig.kotlin_language_server.setup({
     settings = {
         kotlin = {
@@ -22,6 +25,10 @@ lspconfig.html.setup({
 })
 lspconfig.tsserver.setup({})
 lspconfig.jdtls.setup({})
+lspconfig.vuels.setup({})
+lspconfig.jsonls.setup({
+  capabilities = capabilities,
+})
 
 -- Map
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
