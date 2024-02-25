@@ -23,11 +23,15 @@ lspconfig.html.setup({
         "twig",
     },
 })
-lspconfig.tsserver.setup({})
+lspconfig.tsserver.setup({
+    init_options = {
+        completionDisableFilterText = true,
+    }
+})
 lspconfig.jdtls.setup({})
 lspconfig.vuels.setup({})
 lspconfig.jsonls.setup({
-  capabilities = capabilities,
+    capabilities = capabilities,
 })
 lspconfig.rust_analyzer.setup({})
 lspconfig.pyright.setup({})
