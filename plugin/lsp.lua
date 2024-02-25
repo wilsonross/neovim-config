@@ -2,24 +2,6 @@
 local lspconfig = require("lspconfig")
 
 -- Setup
-lspconfig.lua_ls.setup({
-    settings = {
-        Lua = {
-            runtime = {
-                version = "LuaJIT",
-            },
-            diagnostics = {
-                globals = { "vim" },
-            },
-            workspace = {
-                library = vim.api.nvim_get_runtime_file("", true),
-            },
-            telemetry = {
-                enable = false,
-            },
-        },
-    },
-})
 lspconfig.kotlin_language_server.setup({
     settings = {
         kotlin = {
@@ -37,6 +19,11 @@ lspconfig.intelephense.setup({})
 lspconfig.html.setup({})
 lspconfig.tsserver.setup({})
 lspconfig.jdtls.setup({})
+lspconfig.pyright.setup({})
+lspconfig.rust_analyzer.setup({})
+lspconfig.svelte.setup({})
+lspconfig.ocamllsp.setup({})
+lspconfig.jsonls.setup({})
 
 -- Map
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
