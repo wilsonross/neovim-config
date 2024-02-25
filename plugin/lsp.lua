@@ -29,6 +29,9 @@ lspconfig.vuels.setup({})
 lspconfig.jsonls.setup({
   capabilities = capabilities,
 })
+lspconfig.rust_analyzer.setup({})
+lspconfig.pyright.setup({})
+lspconfig.ocamllsp.setup({})
 
 -- Map
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
