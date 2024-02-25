@@ -1,14 +1,9 @@
 -- Import
 local dap = require("dap")
 local dap_ui = require("dapui")
-local vscode_dap = require("dap-vscode-js")
 
 -- Setup
 dap_ui.setup({})
-vscode_dap.setup({
-    debugger_path = os.getenv("HOME") .. "/Tools/vscode-js-debug/",
-    adapters = { "pwa-node" },
-})
 
 -- Icons
 vim.fn.sign_define("DapBreakpoint", { text = "●", texthl = "DapBreakpoint", linehl = "", numhl = "" })
@@ -40,83 +35,3 @@ vim.keymap.set("n", "<Leader>ds", function()
     local widgets = require("dap.ui.widgets")
     widgets.centered_float(widgets.scopes)
 end)
-
--- Adapters
-dap.adapters.php = {
-    type = "executable",
-    command = "node",
-    args = { os.getenv("HOME") .. "/Tools/vscode-php-debug/out/phpDebug.js" }
-}
-
--- Configurations
-dap.configurations.php = {
-    {
-        type = "php",
-        request = "launch",
-        name = "Listen for Xdebug",
-        port = 9003
-    }
-}
-
-dap.configurations.javascript = {
-    {
-        type = "pwa-node",
-        request = "launch",
-        name = "Launch",
-        program = "${file}",
-        cwd = "${workspaceFolder}",
-        skipFiles = { "<node_internals>/**", "node_modules/**" }
-    },
-    {
-        type = "pwa-node",
-        request = "attach",
-        name = "Attach",
-        processId = require "dap.utils".pick_process,
-        cwd = "${workspaceFolder}",
-    },
-    {
-        type = "pwa-node",
-        request = "launch",
-        name = "Mocha",
-        runtimeExecutable = "node",
-        runtimeArgs = {
-            "./node_modules/mocha/bin/mocha.js",
-        },
-        rootPath = "${workspaceFolder}",
-        cwd = "${workspaceFolder}",
-        console = "integratedTerminal",
-        internalConsoleOptions = "neverOpen",
-    }
-}
-
-dap.configurations.typescript = {
-    {
-        type = "pwa-node",
-        request = "launch",
-        name = "Launch",
-        program = "${file}",
-        cwd = "${workspaceFolder}",
-        skipFiles = { "<node_internals>/**", "node_modules/**" },
-        runtimeExecutable = "ts-node"
-    },
-    {
-        type = "pwa-node",
-        request = "attach",
-        name = "Attach",
-        processId = require "dap.utils".pick_process,
-        cwd = "${workspaceFolder}",
-    },
-    {
-        type = "pwa-node",
-        request = "launch",
-        name = "Mocha",
-        runtimeExecutable = "ts-node",
-        runtimeArgs = {
-            "./node_modules/mocha/bin/mocha.js",
-        },
-        rootPath = "${workspaceFolder}",
-        cwd = "${workspaceFolder}",
-        console = "integratedTerminal",
-        internalConsoleOptions = "neverOpen",
-    }
-}
