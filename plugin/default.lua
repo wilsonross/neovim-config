@@ -30,6 +30,7 @@ vim.opt.splitright = true
 vim.opt.encoding = "UTF-8"
 vim.opt.shm:append({ I = true })
 vim.opt.completeopt:remove({ "preview" })
+vim.opt.runtimepath:prepend("/Users/ross.wilson/.opam/default/share/ocp-indent/vim")
 
 -- Map
 vim.keymap.set("n", "<leader>h", "<c-w>h", { noremap = true })

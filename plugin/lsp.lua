@@ -2,6 +2,9 @@
 local lspconfig = require("lspconfig")
 
 -- Setup
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
 lspconfig.kotlin_language_server.setup({
     settings = {
         kotlin = {
@@ -14,16 +17,21 @@ lspconfig.kotlin_language_server.setup({
     },
 })
 lspconfig.gopls.setup({})
-lspconfig.hls.setup({})
 lspconfig.intelephense.setup({})
-lspconfig.html.setup({})
+lspconfig.html.setup({
+    filetypes = {
+        "twig",
+    },
+})
 lspconfig.tsserver.setup({})
 lspconfig.jdtls.setup({})
-lspconfig.pyright.setup({})
+lspconfig.vuels.setup({})
+lspconfig.jsonls.setup({
+  capabilities = capabilities,
+})
 lspconfig.rust_analyzer.setup({})
-lspconfig.svelte.setup({})
+lspconfig.pyright.setup({})
 lspconfig.ocamllsp.setup({})
-lspconfig.jsonls.setup({})
 
 -- Map
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)

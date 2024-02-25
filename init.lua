@@ -8,7 +8,7 @@ Plug("catppuccin/nvim", { as = "catppuccin" })
 
 -- Fuzzy finder
 Plug("nvim-lua/plenary.nvim")
-Plug("nvim-telescope/telescope.nvim", { tag = "0.1.0" })
+Plug("nvim-telescope/telescope.nvim", { tag = "0.1.4" })
 Plug("nvim-telescope/telescope-fzf-native.nvim", { ["do"] = vim.fn["make"] })
 
 -- Language server config
@@ -40,3 +40,5 @@ vim.call("plug#end")
 vim.g.mapleader = " "
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+vim.g.omni_sql_no_default_maps = 1
+vim.g.nomagic = 1
