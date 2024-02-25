@@ -3,3 +3,6 @@
 
 # Lua
 .luarc.json
+
+# Dotenv
+.env
