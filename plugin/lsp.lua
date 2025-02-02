@@ -5,6 +5,13 @@ local lspconfig = require("lspconfig")
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
+local function is_deno_project(root_dir)
+  return vim.fn.glob(root_dir .. "/deno.json") ~= "" or
+         vim.fn.glob(root_dir .. "/deno.jsonc") ~= "" or
+         vim.fn.glob(root_dir .. "/import_map.json") ~= "" or
+         vim.fn.glob(root_dir .. "/deps.ts") ~= ""
+end
+
 lspconfig.kotlin_language_server.setup({
     settings = {
         kotlin = {
@@ -23,11 +30,6 @@ lspconfig.html.setup({
         "twig",
     },
 })
-lspconfig.tsserver.setup({
-    init_options = {
-        completionDisableFilterText = true,
-    }
-})
 lspconfig.jdtls.setup({})
 lspconfig.vuels.setup({})
 lspconfig.jsonls.setup({
@@ -36,6 +38,37 @@ lspconfig.jsonls.setup({
 lspconfig.rust_analyzer.setup({})
 lspconfig.pyright.setup({})
 lspconfig.ocamllsp.setup({})
+lspconfig.bashls.setup({})
+lspconfig.clangd.setup({})
+
+-- TypeScript configuration
+lspconfig.tsserver.setup {
+  on_attach = function(client, bufnr)
+    local root_dir = vim.fn.getcwd()
+    if is_deno_project(root_dir) then
+      client.stop()  -- Stop TSServer in Deno projects
+    end
+  end,
+  root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", ".git"),
+  settings = {
+    typescript = { inlayHints = { includeInlayParameterNameHints = "all" } },
+    javascript = { inlayHints = { includeInlayParameterNameHints = "all" } }
+  },
+  init_options = {
+    completionDisableFilterText = true
+  }
+}
+
+-- Deno configuration (only if in a Deno project)
+if is_deno_project(vim.fn.getcwd()) then
+  lspconfig.denols.setup {
+    root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+    init_options = {
+      lint = true,
+      unstable = true
+    }
+  }
+end
 
 -- Map
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
